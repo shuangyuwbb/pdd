@@ -1,5 +1,5 @@
 <template>
-  <a class="recommend_item" v-for="(item, index) of recommendshoplist" :key="index">
+  <a class="recommend_item">
     <img :src="item.thumb_url" alt="" width="100%" v-if="item.thumb_url">
     <h4 class="item-title">{{item.short_name}}</h4>
     <div class="item-bottom">
@@ -12,11 +12,16 @@
 
 <script>
     export default {
-        name: "ShopList"
+      name: "ShopList",
+      props: {
+          item: Object
+      }
     }
 </script>
 
 <style scoped lang="stylus" ref="stylesheet/stylus">
+  .recommend_item:nth-child(2n-1)
+    margin-right 1%
   .recommend_item
     width 49.5%
     margin-bottom 50px
@@ -45,7 +50,6 @@
         flex 4
         color #666
         font-size 10px
-
       button
         flex 2
         font-size 13px
@@ -54,6 +58,4 @@
         height 25px
         color red
         border 1px solid orangered
-
-
 </style>
